@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 
 const fs = require("fs");
 app.get("/join/:group", (req, res) => {
-    const d = fs.readFileSync(rp("html/join.html")).replaceAll("{{ groupName }}", req.params.group)
+    const d = fs.readFileSync(rp("html/join.html"), "utf8").toString().replaceAll("{{ groupName }}", req.params.group)
     res.send(d);
 })
 

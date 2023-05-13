@@ -13,36 +13,18 @@
             <span class="search-place">Search for a group or post</span>
         </div>
 
-        <button class="joinGroup" title="New Post/Join Group">+</button>
+        <a href="/register">
+            <button class="register">Register</button>
+        </a>
     </div>
 
     <div class="tt">
         <h1 style="font-family: 'Montserrat', sans-serif">Select a group</h1>
-        <p id="youHaveNo">You currently have no groups. Try to find a group by searching for one, or looking at the group list.</p>
+        <p id="youHaveNo" style="display: block !important;">Please sign in to view groups.</p>
 
         <div id="groups">
         </div>
     </div>
-
-    <div class="modal-confirm">
-        <span class="mc-close">X</span>
-
-        <h1>Join a group</h1>
-
-        <input type="text" placeholder="Some group name" id="jag-input">
-
-        <p id="error-jg">Failed to join group. Invalid group name, or some error occured.</p>
-
-        <button id="confirm-gj" style="opacity: 0.5; cursor: not-allowed;">Confirm</button>
-
-        <br><br>
-        <h1 style="margin-top: 30px;">New post</h1>
-
-        <a href="/create-post">
-            <button id="cr-gj">Create a post</button>
-        </a>
-    </div>
-
     <script src="/forge.js"></script>
     <script src="/index/search.js"></script>
     <script src="/index/groups.js"></script>

@@ -33,6 +33,7 @@ body {
     transition: .55s;
     border-bottom: 2px solid transparent;
     border-right: 2px solid transparent;
+    margin-top: 15px;
 }
 
 .dft-group-btn:hover {
@@ -81,4 +82,94 @@ body {
 
 .search:focus {
     border-radius: 25px / 25px;
+}
+
+.register {
+    background-color: orange;
+    color: white;
+    border: 1px solid orange;
+    border-radius: 25px / 25px;
+    position: absolute;
+    transform: translate(0%, -50%);
+    top: 50%;
+    right: 1.5%;
+    width: 150px;
+    height: 45px;
+    font-size: 17px;
+    font-family: 'Work Sans', sans-serif;
+    cursor: pointer;
+}
+
+.joinGroup {
+    color: white;
+    background-color: rgb(20, 106, 187);
+    border: 1px solid rgb(20, 106, 187);
+    border-radius: 100%;
+    font-size: 34px;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    transform: translate(0%, -50%);
+    top: 50%;
+    right: 1.5%;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-confirm {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 40%;
+    background-color: white;
+    padding-left: 30px;
+    display: none;
+}
+
+.modal-confirm h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#confirm-gj, #cr-gj {
+    background-color: rgb(20, 106, 187);
+    border: 1px solid rgb(20, 106, 187);
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    font-family: 'Work Sans', sans-serif;
+    cursor: pointer;
+    outline: 0;
+    transition: .4s;
+}
+
+#jag-input {
+    width: 450px;
+    height: 40px;
+    padding-left: 10px;
+    font-family: 'Source Code Pro', sans-serif;
+    font-size: 16.5px;
+    border-radius: 1.5px;
+    outline: 0;
+    border: 1px solid black;
+}
+
+#error-jg {
+    color: red;
+    font-family: 'Source Code Pro', sans-serif;
+    opacity: 0;
+    transition: .35s;
+}
+
+.mc-close {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Source Code Pro', sans-serif;
 }

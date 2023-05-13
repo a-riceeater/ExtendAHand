@@ -26,3 +26,51 @@ fetch("/api/get-user-groups", {
             _("#groups").appendChild(el);
         }
     })
+
+_("#confirm-gj").addEventListener("click", () => {
+    if (_("#confirm-gj").style.opacity == "1") {
+        const group = _("#jag-input").value;
+        
+        fetch(`/api/join-group/${group}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((d) => d.json())
+            .then((d) => {
+                console.dir(d);
+                console.log(d.error)
+
+                if (d.error) {
+                    _("#error-jg").style.opacity = '1';
+                    _("#error-jg").innerHTML = d.error;
+
+                    setTimeout(() => {
+                        _("#error-jg").style.opacity = '0'
+                    }, 1000)
+                } else {
+                    if (d.joined) window.location = '/groups/' + group;
+                }
+            })
+    }
+})
+
+_("#jag-input").addEventListener("keydown", () => {
+    setTimeout(() => {
+        if (_("#jag-input").value.trim() != "") {
+            _("#confirm-gj").style.cursor = "pointer"
+            _("#confirm-gj").style.opacity = "1"
+        } else {
+            _("#confirm-gj").style.cursor = "not-allowed"
+            _("#confirm-gj").style.opacity = "0.5"
+        }
+    })
+})
+
+_(".mc-close").addEventListener("click", () => {
+    _(".modal-confirm").hide();
+})
+
+_(".joinGroup").addEventListener("click", () => {
+    _(".modal-confirm").show();
+})

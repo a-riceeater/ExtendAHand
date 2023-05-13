@@ -45,7 +45,7 @@ function authAlready(req, res, next) {
     if (!token) return next()
     else {
         tokenHandler.verifyToken(token, (t) => {
-            if (t) return res.redirect("/inbox")
+            if (t) return res.redirect("/")
             next()
         })
 
@@ -55,7 +55,20 @@ function authAlready(req, res, next) {
 // Middleware
 
 app.get("/", (req, res) => {
-    res.sendFile(rp("html/index.html"))
+    if (!req.headers.cookie) return res.sendFile(rp("html/index-out.html"))
+    if (!req.headers.cookie.includes("token=")) return res.sendFile(rp("html/index-out.html"))
+    const token = req.headers.cookie.split("token=")[1];
+    if (!token) return res.sendFile(rp("html/index-out.html"))
+    else {
+        tokenHandler.verifyToken(token, (t) => {
+            if (!t) return res.sendFile(rp("html/index-out.html"))
+
+            res.token = t.token;
+            res.user = CryptoJS.AES.decrypt(t.name, process.env.accountEncryptionKey).toString(CryptoJS.enc.Utf8);
+
+            res.sendFile(rp("html/index.html"))
+        })
+    }
 })
 
 const fs = require("fs");

@@ -11,21 +11,27 @@ module.exports = {
 
             const groups = eval(row.groups);
 
-            if (groups.length == 0) g()
+            if (groups.length == 0) { return g() }
             else {
                 for (let i = 0; i < groups.length; i++) {
-                    if (groups[i] == group) return cb({ error: "You are already in this group!", joined: false })
+                    if (groups[i] == group) {
+                        return cb({ error: "You are already in this group!", joined: false })
+                    }
 
-                    if (i == groups.length - 1) g();
+                    if (i == groups.length - 1) return g();
                 }
             }
 
+            var gExec = false;
             function g() {
+                if (gExec) return;
+
+                gExec = true;
                 groups.push(group);
 
                 groupDb.run("UPDATE userGroups SET user = ?, groups = ? WHERE user = ?", [user, JSON.stringify(groups), user], (err) => {
                     if (err) throw err;
-                    return cb({ error: false, joined: true })
+                    cb({ error: false, joined: true })
                 })
             }
         })

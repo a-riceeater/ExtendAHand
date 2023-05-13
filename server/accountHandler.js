@@ -2,6 +2,7 @@ const tokenManager = require("./tokenHandler");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const accountDb = new sqlite3.Database(path.join(__dirname, '../database/accountDb.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
+const groupDb = new sqlite3.Database(path.join(__dirname, '../database/groupDb.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
 
 const CryptoJS = require('crypto-js');
 accountDb.run(`CREATE TABLE IF NOT EXISTS accounts(name TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)`)
@@ -16,14 +17,16 @@ module.exports = {
         name = name.trim()
         password = password.trim()
 
-        console.log("reached")
 
         accountDb.all("SELECT * from accounts", (err, rows) => {
             if (err) throw err;
 
-            console.log(rows)
 
             if (rows.length == 0) {
+                let gd = groupDb.prepare("INSERT INTO userGroups VALUES(?,?)")
+                gd.run(name, JSON.stringify([]));
+                gd.finalize();
+
                 let insertdata = accountDb.prepare(`INSERT INTO accounts VALUES(?,?,?)`);
                 name = CryptoJS.AES.encrypt(name, process.env.accountEncryptionKey).toString();
                 email = CryptoJS.AES.encrypt(email, process.env.accountEncryptionKey).toString();
@@ -40,7 +43,6 @@ module.exports = {
 
             for (let i = 0; i < rows.length; i++) {
                 const row = rows[i];
-                console.log(row)
                 if (CryptoJS.AES.decrypt(row.name, process.env.accountEncryptionKey).toString(CryptoJS.enc.Utf8) == name) {
                     cb({ error: "Name already exists! " })
                     console.log("name is already in use! (" + email + ")");

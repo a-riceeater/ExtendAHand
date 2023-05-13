@@ -10,6 +10,7 @@ const rp = (p) => path.join(__dirname, p)
 // Server files
 const tokenHandler = require("./server/tokenHandler.js")
 const accountHandler = require("./server/accountHandler.js")
+const groupHandler = require("./server/groupHandler")
 
 app.use(express.static(rp("public")))
 app.use(express.json())
@@ -27,6 +28,8 @@ function authenticateToken(req, res, next) {
     else {
         tokenHandler.verifyToken(token, (t) => {
             if (!t) return res.redirect("/register")
+
+            console.log(t)
 
             res.token = t.token;
             res.user = CryptoJS.AES.decrypt(t.name, process.env.accountEncryptionKey).toString(CryptoJS.enc.Utf8);
@@ -63,8 +66,10 @@ app.get("/join/:group", (req, res) => {
     res.send(d);
 })
 
-app.get("/api/join-group/:group", (req, res) => {
-    res.send({ joined: true })
+app.get("/api/join-group/:group", authenticateToken, (req, res) => {
+    groupHandler.joinGroup(res.user, req.params.group, (s) => {
+        res.send(s);
+    })
 })
 
 app.get("/groups/:group", (req, res) => {

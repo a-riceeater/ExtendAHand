@@ -6,7 +6,7 @@ const fs = require("fs")
 if (!fs.existsSync("../database")) fs.mkdirSync("../database") 
 
 const tokenDb = new sqlite3.Database(path.join(__dirname, '../database/tokenDb.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
-tokenDb.run(`CREATE TABLE IF NOT EXISTS tokens(token TEXT NOT NULL, email TEXT NOT NULL)`)
+tokenDb.run(`CREATE TABLE IF NOT EXISTS tokens(token TEXT NOT NULL, name TEXT NOT NULL)`)
 
 function createToken(name) {
     let token = '';

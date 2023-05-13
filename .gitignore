@@ -1,3 +1,4 @@
 node_modules/sqlite3
 database/accountDb.db
 database/tokenDb.db
+database/groupDb.db

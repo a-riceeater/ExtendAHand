@@ -96,7 +96,8 @@ app.get("/api/get-user-groups", authenticateToken, (req, res) => {
 })
 
 app.get("/groups/:group", (req, res) => {
-    res.sendFile(rp("html/group.html"))
+    const d = fs.readFileSync(rp("html/group.html"), "utf8").replaceAll("{{ group }}", req.params.group)
+    res.send(d);
 })
 
 // Accounts

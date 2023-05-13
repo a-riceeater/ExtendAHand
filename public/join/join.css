@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+body {
+    background-color: rgb(228, 221, 221);
+}
+
+.tt {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.confirmJoin {
+    margin-top: 15px;
+    width: 250px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 2.5px;
+    height: 35px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.cancelJoin {
+    width: 250px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: 1px solid orange;
+    border-radius: 2.5px;
+    height: 35px;
+    font-size: 17px;
+    cursor: pointer;
+}

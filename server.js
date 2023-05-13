@@ -9,6 +9,9 @@ const rp = (p) => path.join(__dirname, p)
 const tokenHandler = require("./server/tokenHandler.js")
 const accountHandler = require("./server/accountHandler.js")
 
+app.use(express.static(rp("public")))
+app.use(express.json())
+
 // Middleware
 
 app.get("/", (req, res) => {
@@ -17,7 +20,7 @@ app.get("/", (req, res) => {
 
 const fs = require("fs");
 app.get("/join/:group", (req, res) => {
-    const d = fs.readFileSync(rp("html/join.html"), "utf8").toString().replaceAll("{{ groupName }}", req.params.group)
+    const d = fs.readFileSync(rp("html/join.html"), "utf8").replaceAll("{{ groupName }}", req.params.group)
     res.send(d);
 })
 

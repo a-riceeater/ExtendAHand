@@ -21,6 +21,11 @@ app.get("/join/:group", (req, res) => {
     res.send(d);
 })
 
+// 404
+app.get("*", (req, res) => {
+    res.sendFile(rp("html/404.html"))
+})
+
 app.listen(5000, () => {
     console.log("Server running on port 5000\nhttp://localhost:5000")
 })

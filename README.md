@@ -12,7 +12,9 @@ Users may ask people for help when they need on various topics, like coding, coo
 
 ## How we built it
 
-ExtendAHand is built on the [Express.JS](https://expressjs.com) framework, and used [sqlite3](https://www.npmjs.com/package/sqlite3)
+ExtendAHand is built on the [Express.JS](https://expressjs.com) framework, and used [sqlite3](https://www.npmjs.com/package/sqlite3) for data storage.
+
+All user data is encrypted on the server side, and authentication tokens are used to track user logins.
 
 ## Challenges we ran into
 

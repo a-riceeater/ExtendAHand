@@ -8,7 +8,7 @@ As the theme is "social-good", I felt it was a good idea to create a web app for
 
 ## What it does
 
-Users may ask people for help when they need on various topics, like coding, cooking, etc.
+Users may ask people for help when they need on various topics, like coding, cooking, etc. The user may join that group at any time to ask questions for those groups.
 
 ## How we built it
 

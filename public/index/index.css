@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Work%20Sans");
+
+body {
+    background-color: rgb(228, 221, 221);
+}
+
+.tt {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+
+#youHaveNo {
+    font-family: 'Work Sans', sans-serif;
+    display: none;
+}
+
+.dft-group-btn {
+    text-align: left;
+    background-color: white;
+    height: 55px;
+    cursor: pointer !important;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-radius: 50px / 50px;
+    transition: .55s;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+
+.dft-group-btn:hover {
+    box-shadow: 2.9px 5.8px 5.8px hsl(0deg 0% 0% / 0.41);
+    border-bottom: 2px solid blue;
+    border-right: 2px solid blue;
+}
+
+.g-title {
+    font-weight: 600;
+}

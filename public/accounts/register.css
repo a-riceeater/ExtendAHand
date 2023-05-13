@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Work%20Sans");
+
+body {
+    background-color: rgb(228, 221, 221);
+}
+
+.tt {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: left;
+    border: 2px solid orange;
+    border-radius: 3px;
+    height: 50%;
+    width: 480px;
+    height: 677px;
+    background-color: white;
+}
+
+h2, h1 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+    margin-left: 30px;
+    margin-top: 5px;
+    height: 35px;
+    padding-left: 8px;
+    border-radius: 5px / 5px;
+    border: 1.5px solid gray;
+    width: 85%;
+    outline: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-family: 16px;
+}
+
+#confirm-btn {
+    margin-left: 30px;
+    font-family: 'Work Sans', sans-serif;
+    height: 45px;
+    background-color: rgb(255, 123, 0);
+    width: 90%;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 17px;
+    color: white;
+    margin-left: 30px;
+    margin-top: 100px;
+    transition: .5s;
+    box-shadow: 2.2px 4.3px 4.3px hsl(0deg 0% 0% / 0.43);
+}
+
+#showPassword {
+    vertical-align: middle;
+    margin-left: 30px;
+    cursor: pointer;
+    border: 2px solid rgb(255, 123, 0);
+    background-color: transparent;
+    height: 15px;
+    width: 15px;
+    transition: .25s;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+#error {
+    margin-left: 30px;
+    color: red;
+    font-family: monospace;
+}
+
+.label {
+    font-weight: 600;
+    text-align: left;
+    margin-left: 30px;
+    font-family: 'Montserrat', sans-serif;
+}

@@ -38,6 +38,7 @@ body {
     box-shadow: 2.9px 5.8px 5.8px hsl(0deg 0% 0% / 0.41);
     border-bottom: 2px solid blue;
     border-right: 2px solid blue;
+    padding-right: 55px;
 }
 
 .g-title {

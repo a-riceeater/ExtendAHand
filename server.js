@@ -29,8 +29,6 @@ function authenticateToken(req, res, next) {
         tokenHandler.verifyToken(token, (t) => {
             if (!t) return res.redirect("/register")
 
-            console.log(t)
-
             res.token = t.token;
             res.user = CryptoJS.AES.decrypt(t.name, process.env.accountEncryptionKey).toString(CryptoJS.enc.Utf8);
 
@@ -69,6 +67,18 @@ app.get("/join/:group", (req, res) => {
 app.get("/api/join-group/:group", authenticateToken, (req, res) => {
     groupHandler.joinGroup(res.user, req.params.group, (s) => {
         res.send(s);
+    })
+})
+
+app.get("/api/leave-group/:group", authenticateToken, (req, res) => {
+    groupHandler.leaveGroup(res.user, req.params.group, (s) => {
+        res.send(s);
+    })
+})
+
+app.get("/api/get-user-groups", authenticateToken, (req, res) => {
+    groupHandler.getUserGroups(res.user, (g) => {
+        res.send({ groups: g });
     })
 })
 

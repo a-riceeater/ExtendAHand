@@ -78,6 +78,8 @@ module.exports = {
         })
     },
     handle: function(g, c) {
-
+        postHandler.createTable(g, () => {
+            c();
+        });
     }
 }

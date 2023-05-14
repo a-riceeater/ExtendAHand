@@ -50,6 +50,10 @@ module.exports = {
                 }
 
                 if (i == rows.length - 1) {
+                    let gd = groupDb.prepare("INSERT INTO userGroups VALUES(?,?)")
+                    gd.run(name, JSON.stringify([]));
+                    gd.finalize();
+
                     let insertdata = accountDb.prepare(`INSERT INTO accounts VALUES(?,?,?)`);
                     name = CryptoJS.AES.encrypt(name, process.env.accountEncryptionKey).toString();
                     email = CryptoJS.AES.encrypt(email, process.env.accountEncryptionKey).toString();

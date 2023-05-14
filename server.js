@@ -11,6 +11,7 @@ const rp = (p) => path.join(__dirname, p)
 const tokenHandler = require("./server/tokenHandler.js")
 const accountHandler = require("./server/accountHandler.js")
 const groupHandler = require("./server/groupHandler")
+const postHandler = require("./server/postHandler")
 
 app.use(express.static(rp("public")))
 app.use(express.json())
@@ -97,7 +98,6 @@ app.get("/api/get-user-groups", authenticateToken, (req, res) => {
 
 app.get("/groups/:group", authenticateToken, (req, res) => {
     groupHandler.userInGroup(res.user, req.params.group, (i) => {
-        console.log(i);
         if (i) {
             groupHandler.handle(req.params.group, () => {
                 const d = fs.readFileSync(rp("html/group.html"), "utf8").replaceAll("{{ group }}", req.params.group)
@@ -126,6 +126,32 @@ app.post("/api/register", authAlready, (req, res) => {
             }
         }, Math.random() * (4000 - 2000) + 2000)
     })
+})
+
+app.post("/api/create-post", authenticateToken, (req, res) => {
+    postHandler.createPost(req.body, res.user, req.body.group, (p) => {
+        res.send({ posted: p })
+    })
+})
+
+app.get("/api/get-posts/:group", authenticateToken, (req, res) => {
+    postHandler.getPosts(req.params.group, (posts) => {
+        res.send(posts);
+    })
+})
+
+app.get("/api/get-post/:postId", authenticateToken, (req, res) => {
+    postHandler.getPost(req.params.postId, (p) => {
+        res.send(p);
+    })
+})
+
+app.get("/new-post", authenticateToken, (req, res) => {
+    res.sendFile(rp("html/newPost.html"))
+})
+
+app.get("/groups/:group/posts/:postId", (req, res) => {
+    res.sendFile(rp("html/post.html"))
 })
 
 // 404

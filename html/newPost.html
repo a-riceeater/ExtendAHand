@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,29 @@
     <title>Create a new post</title>
     <link rel="stylesheet" href="/new-post/post.css">
 </head>
+
 <body>
     <div class="tt">
         <h1>Create a new post</h1>
+
+        <p class="label">Group</p>
+        <select id="group">
+        </select>
+
+        <hr width="85%" align="left" style="margin-top: 15px;">
+
+        <p class="label">Post Title</p>
+        <input type="text" id="title" placeholder="How to center a div?">
+
+        <p class="label">Post Body</p>
+
+        <textarea id="body"></textarea>
+
+        <button class="post disabled">Post</button>
     </div>
+
+    <script src="/forge.js"></script>
+    <script src="/new-post/post.js"></script>
 </body>
+
 </html>

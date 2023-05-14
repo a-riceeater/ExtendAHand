@@ -9,11 +9,34 @@
 </head>
 <body>
     <div class="postContainer">
-        <p>{{ postUser }}</p>
-        <h1 id="postTitle">{{ postTitle }}</h1>
-        <div id="postBody">
-            {{ postBody }}
+        <div class="postData">
+            <p id="postUser">{{ postUser }} - <span id="gname">{{ group }}</span></p>
+            <h1 id="postTitle">{{ postTitle }}</h1>
+            <div id="postBody">
+                {{ postBody }}
+            </div>
+        </div>
+       <div class="comments">
+            <div style="margin-left: 25px">
+                <p style="font-weight: 600; font-size: 18px; font-family: 'Source Code Pro'">Comments - <span id="a" style="cursor: pointer; text-decoration: underline; font-size: 14px;">Add Comment</span></p>
+            </div>
+       </div>
+    </div>
+
+    <div class="newcomment" style="display: none">
+        <div style="margin-left: 20px; height: 100%">
+            <h1 style="font-family: 'Montserrat', sans-serif">New Comment</h1>
+
+            <textarea id="commentBody" placeholder="Answer to the question..."></textarea>
+
+            <button class="answer disabled">Answer</button>
         </div>
     </div>
+
+    <div class="shade" style="display: none">
+    </div>
+
+    <script src="/forge.js"></script>
+    <script src="/post/post.js"></script>
 </body>
 </html>

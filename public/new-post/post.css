@@ -24,3 +24,63 @@ h1 {
     font-family: 'Work Sans', sans-serif;
     text-align: left;
 }
+
+#group {
+    width: 150px;
+    cursor: pointer;
+    height: 35px;
+    font-size: 16.5px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.label {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#title {
+    height: 40px;
+    font-size: 16px;
+    width: 95%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline: 0;
+    border: 1px solid black;
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+    border-radius: 2px;
+}
+
+#body {
+    height: 48%;
+    width: 95%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    outline: 0;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    padding-top: 8px;
+    font-family: 'Work Sans', sans-serif;
+    color: black;
+    border-radius: 2px;
+}
+
+.post {
+    background-color: rgb(236, 150, 51);
+    border: 1px solid rgb(236, 150, 51);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: absolute;
+    right: 1.5%;
+    bottom: 1.5%;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

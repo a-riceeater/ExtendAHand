@@ -3,6 +3,9 @@ const group = document.URL.endsWith("/") ? document.URL.split("/").slice(0, -1).
 fetch("/api/get-posts/" + group)
     .then((d) => d.json())
     .then((d) => {
+
+        if (d.length == 0) return _("#noPosts").show();
+
         for (let i = 0; i < d.length; i++) {
             const da = d[i];
 

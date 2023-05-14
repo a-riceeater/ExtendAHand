@@ -55,6 +55,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 10px;
+    border-radius: 5px;
 }
 
 .postControls {

@@ -165,24 +165,7 @@ app.get("/groups/:group/post/:postId", (req, res) => {
 })
 
 app.get("/login", authAlready, (req, res) => {
-    res.send(`
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
-    <link rel="stylesheet" href="/404.css">
-</head>
-<body>
-    <div class="tt">
-        <h1>Coming soon</h1>
-        <p>This page is currently in development.</p>
-    </div>
-</body>
-</html>
-    `)
+    res.sendFile(rp("html/accounts/login.html"))
 })
 
 app.post("/api/create-comment", authenticateToken, (req, res) => {

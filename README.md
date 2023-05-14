@@ -20,7 +20,6 @@ All user data is encrypted on the server side, and authentication tokens are use
 
 Some challenges were figuring out ways to store the post/comment data, etc.
 
-Another problem was that I didn't have much time, I finished the project 7 minutes before the deadline.
 
 ## Accomplishments that we're proud of
 

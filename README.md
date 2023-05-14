@@ -18,8 +18,18 @@ All user data is encrypted on the server side, and authentication tokens are use
 
 ## Challenges we ran into
 
+Some challenges were figuring out ways to store the post/comment data, etc.
+
+Another problem was that I didn't have much time.
+
 ## Accomplishments that we're proud of
+
+I was able to do it all in around 4-6 hours total.
 
 ## What we learned
 
+I learned new ways of storing stuff with SQL (using arrays in a value)
+
 ## What's next for ExtendAHand
+
+I will probably add more features, fix bugs, and polish it.

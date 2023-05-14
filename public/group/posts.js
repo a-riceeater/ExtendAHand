@@ -1,4 +1,4 @@
-const group = document.URL.split("/").pop();
+const group = document.URL.endsWith("/") ? document.URL.split("/").slice(0, -1).pop() : document.URL.split("/").pop();
 
 fetch("/api/get-posts/" + group)
     .then((d) => d.json())

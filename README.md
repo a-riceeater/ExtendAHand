@@ -28,7 +28,9 @@ I was able to do it all in around 4-6 hours total.
 
 ## What we learned
 
-I learned new ways of storing stuff with SQL (using arrays in a value)
+I learned new ways of storing stuff with SQL (using arrays in a value).
+
+I also used more dynamic pages instead of static pages.
 
 ## What's next for ExtendAHand
 

@@ -22,14 +22,18 @@ module.exports = {
     },
     getPosts: function (table, c) {
         postDb.all(`SELECT * FROM ${table}`, (err, rows) => {
-            if (err) c("An error occured.");
-            
+            if (err) c([{
+                "user": "An error occured.", "title": "An error occured.", "body": "An error occured.", "id": "An error occured.", "comments": "An error occured."
+            }]);
+
             c(rows);
         })
     },
-    getPost: function (id, c) {
-        postDb.get(`SELECT * FROM posts WHERE id = ?`, [id], (err, row) => {
-            if (err) c("An error occured.");
+    getPost: function (table, id, c) {
+        postDb.get(`SELECT * FROM ${table} WHERE id = ?`, [id], (err, row) => {
+            if (err) c({
+                "user": "An error occured.", "title": "An error occured.", "body": "An error occured.", "id": "An error occured.", "comments": "An error occured."
+            });
             c(row);
         })
     }

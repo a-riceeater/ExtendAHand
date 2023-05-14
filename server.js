@@ -150,8 +150,16 @@ app.get("/new-post", authenticateToken, (req, res) => {
     res.sendFile(rp("html/newPost.html"))
 })
 
-app.get("/groups/:group/posts/:postId", (req, res) => {
-    res.sendFile(rp("html/post.html"))
+app.get("/groups/:group/post/:postId", (req, res) => {
+    postHandler.getPost(req.params.group, req.params.postId, (post) => {
+        let d = fs.readFileSync(rp("html/post.html"), "utf8").toString()
+        .replaceAll("{{ postTitle }}", post.title)
+        .replaceAll("{{ postBody }}", post.body)
+        .replaceAll("{{ postUser }}", post.user)
+        .replaceAll("{{ group }}", req.params.group)
+
+        res.send(d);
+    })
 })
 
 // 404

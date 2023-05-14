@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You are not in this group.</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat");
+        @import url("https://fonts.googleapis.com/css?family=Nunito");
+        @import url("https://fonts.googleapis.com/css?family=Work%20Sans");
+        @import url("https://fonts.googleapis.com/css?family=Source%20Code%20Pro");
+
+        body {
+            background-color: rgb(228, 221, 221);
+        }
+
+        .tt {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            text-align: center;
+        }
+
+        a {
+            color: blue;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tt">
+        <p style="font-family: 'Montserrat', sans-serif">You are not part of {{ group }}.</p>
+        <p><a href="/">Return Home</a></p>
+    </div>
+</body>
+
+</html>

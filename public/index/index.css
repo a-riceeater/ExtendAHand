@@ -13,6 +13,26 @@ body {
     top: 50%;
     left: 50%;
     text-align: center;
+    overflow-y: scroll;
+    height: 80%;
+    width: 50%;
+    padding-right: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 #youHaveNo {
@@ -132,7 +152,8 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#confirm-gj, #cr-gj {
+#confirm-gj,
+#cr-gj {
     background-color: rgb(20, 106, 187);
     border: 1px solid rgb(20, 106, 187);
     border-radius: 5px;

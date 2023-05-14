@@ -95,9 +95,19 @@ app.get("/api/get-user-groups", authenticateToken, (req, res) => {
     })
 })
 
-app.get("/groups/:group", (req, res) => {
-    const d = fs.readFileSync(rp("html/group.html"), "utf8").replaceAll("{{ group }}", req.params.group)
-    res.send(d);
+app.get("/groups/:group", authenticateToken, (req, res) => {
+    groupHandler.userInGroup(res.user, req.params.group, (i) => {
+        console.log(i);
+        if (i) {
+            groupHandler.handle(req.params.group, () => {
+                const d = fs.readFileSync(rp("html/group.html"), "utf8").replaceAll("{{ group }}", req.params.group)
+                res.send(d);
+            })
+        } else {
+            const da = fs.readFileSync(rp("html/not-in-group.html"), "utf8").replaceAll("{{ group }}", req.params.group)
+            res.send(da);
+        }
+    })
 })
 
 // Accounts

@@ -16,6 +16,75 @@ body {
     background-color: white;
 }
 
+.groupBanner {
+    position: fixed;
+    left: 0%;
+    top: 8%;
+    height: 11.5%;
+    width: 100%;
+    background-color: rgb(160, 157, 157);
+    color: black;
+    padding-left: 15px;
+    font-family: 'Source Code Pro', sans-serif;
+    margin-top: 0;
+}
+
+.posts {
+    position: fixed;
+    left: 0%;
+    width: 100%;
+    top: calc(11.5% + 8%);
+    height: calc(100% - calc(8% + 11.5%));
+    text-align: center;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.post {
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    margin-top: 50px;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.postControls {
+    align-self: flex-end;
+}
+
+.wrapper {
+    padding-bottom: 20px;
+}
+
+.post-title {
+    font-family: 'Montserrat', sans-serif;
+    cursor: text !important;
+}
+
+.post-body {
+    cursor: text !important;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.viewpostBtn {
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: transparent !important;
+    cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
+}
+
 .search {
     position: absolute;
     width: 85%;

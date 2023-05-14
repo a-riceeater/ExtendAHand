@@ -23,6 +23,8 @@ fetch("/api/get-user-groups", {
             
             el.classList.add("dft-group-btn");
 
+            el.addEventListener("click", () => window.location = '/groups/' + groups[i])
+
             _("#groups").appendChild(el);
         }
     })
@@ -31,27 +33,7 @@ _("#confirm-gj").addEventListener("click", () => {
     if (_("#confirm-gj").style.opacity == "1") {
         const group = _("#jag-input").value;
         
-        fetch(`/api/join-group/${group}`, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then((d) => d.json())
-            .then((d) => {
-                console.dir(d);
-                console.log(d.error)
-
-                if (d.error) {
-                    _("#error-jg").style.opacity = '1';
-                    _("#error-jg").innerHTML = d.error;
-
-                    setTimeout(() => {
-                        _("#error-jg").style.opacity = '0'
-                    }, 1000)
-                } else {
-                    if (d.joined) window.location = '/groups/' + group;
-                }
-            })
+        window.location = `/join/${group}`
     }
 })
 

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Source%20Code%20Pro");
 
 body {
     background-color: rgb(228, 221, 221);
@@ -40,4 +41,11 @@ p {
     height: 35px;
     font-size: 17px;
     cursor: pointer;
+}
+
+#error-jg {
+    color: red;
+    font-family: 'Source Code Pro', sans-serif;
+    opacity: 0;
+    transition: 1s;
 }

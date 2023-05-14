@@ -1,5 +1,6 @@
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path")
+const postHandler = require("./postHandler.js")
 
 const groupDb = new sqlite3.Database(path.join(__dirname, '../database/groupDb.db'), sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE);
 groupDb.run(`CREATE TABLE IF NOT EXISTS userGroups(user TEXT NOT NULL, groups TEXT NOT NULL)`)
@@ -67,12 +68,16 @@ module.exports = {
 
             return cb(eval(row.groups));
         })
+    },
+    userInGroup(user, group, cb) {
+        groupDb.get("SELECT * FROM userGroups WHERE user = ?", [user], (err, row) => {
+            if (err) throw err;
+
+            const groups = eval(row.groups);
+            return cb(groups.includes(group));
+        })
+    },
+    handle: function(g, c) {
+
     }
 }
-
-
-// userGroups: "user: ["coding", "a"]"
-// each group table: coding
-//                   - user1
-//                   - user2
-// etc

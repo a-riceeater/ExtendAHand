@@ -54,7 +54,7 @@ fetch("/api/fetch-comments", {
         let b = JSON.parse(a[i])
 
         const e = document.createElement("p")
-        e.innerHTML = `${b.user} - ${b.comment}`
+        e.innerHTML = `<pre>${b.user} - ${b.comment}</pre>`
         e.classList.add("comment")
         _(".comments > div").appendChild(e);
     }
